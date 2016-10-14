@@ -6,7 +6,7 @@ const parseData = require( __dirname + "/parse-file-reader" )
 
 // Read the customer data json
 
-parseData( "/customers.json", function ( data ) { 
+parseData( "/customers/customers.json", function ( data ) { 
 	calcComp ( data ) 
 })
 
