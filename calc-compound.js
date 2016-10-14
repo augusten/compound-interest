@@ -6,7 +6,7 @@ let roundDecimal = ( number ) => {
 }
 
 let addCommas = ( number ) => {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 let prettyNr = ( number ) => {
@@ -31,14 +31,13 @@ let calcCompound = ( customer, callback ) => {
 		customer.pension.endamount.optimistic  += ( customer.finances.monthlyadd * 12 )
 
 		// multiply by the interest of all the scenarios
-		customer.pension.endamount.pessimistic *= customer.pension.interest.pessimistic
-		customer.pension.endamount.average	   *= customer.pension.interest.average
-		customer.pension.endamount.optimistic  *= customer.pension.interest.optimistic
+		customer.pension.endamount.pessimistic *= prettyNr( customer.pension.interest.pessimistic )
+		customer.pension.endamount.average	   *= prettyNr( customer.pension.interest.average )
+		customer.pension.endamount.optimistic  *= prettyNr( customer.pension.interest.optimistic )
 	}
 	// output our data
 	callback ( customer )
 }
 
-
-
+// Export module
 module.exports = calcCompound

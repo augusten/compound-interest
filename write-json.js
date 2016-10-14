@@ -10,4 +10,5 @@ let writeThis = function ( dataArray ) {
 	})
 } 
 
+// Export module
 module.exports = writeThis

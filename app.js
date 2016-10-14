@@ -7,6 +7,7 @@ const fs = require ( 'fs' )
 const calcComp = require( __dirname + "/calc-compound")
 const parseData = require( __dirname + "/parse-file-reader" )
 const createFile = require ( __dirname + "/write-json")
+const createUsers = require ( __dirname + "/generator")
 
 // Initialize Array for JSON data
 let customerArray = new Array()
@@ -20,5 +21,14 @@ parseData( __dirname + "/customers", function ( data ) {
 	calcComp ( data, function ( dddata ) {
 		customerArray.push( dddata )
 		createFile ( customerArray )
-	} )
+	})
+})
+
+// create new user
+createUsers( process.argv[2], function ( dataArray ) {
+	for (var i = dataArray.length - 1; i >= 0; i--) {
+		calcComp ( dataArray[i], function ( ddata ) {
+			console.log( ddata )
+		})
+	}
 })
