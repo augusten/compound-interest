@@ -10,13 +10,21 @@ const parseData = require( __dirname + "/parse-file-reader" )
 // 	calcComp ( data ) 
 // })
 
-fs.readdir ( __dirname + "/customers", 'utf8', function (err, data) {
-	if (err) {
-		console.log(err)
-		throw err
-	}
-	for ( i = 0 ; i < data.length ; i++) {
-		console.log ( data[i] )
-	}
-})
+parseData( __dirname + "/customers", function ( data ) {
+	console.log( typeof(data) )
+} )
+
+	 //, function ( data ) {
+	// console.log( data )
+// })
+
+// fs.readdir ( __dirname + "/customers", 'utf8', function (err, data) {
+// 	if (err) {
+// 		console.log(err)
+// 		throw err
+// 	}
+// 	for ( i = 0 ; i < data.length ; i++) {
+// 		console.log ( data[i] )
+// 	}
+// })
 
