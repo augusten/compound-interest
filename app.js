@@ -11,7 +11,8 @@ const parseData = require( __dirname + "/parse-file-reader" )
 // })
 
 parseData( __dirname + "/customers", function ( data ) {
-	console.log( typeof(data) )
+	calcComp ( data )
+	// console.log( typeof(data) )
 } )
 
 	 //, function ( data ) {
