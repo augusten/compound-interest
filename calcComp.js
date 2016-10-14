@@ -14,7 +14,7 @@ let prettyNr = ( number ) => {
 }
 
 // Function to calculate compound interest from a customer object
-let calcCompound = ( customer ) => {
+let calcCompound = ( customer, callback ) => {
 	// Set end amount variable and calculate total duration
 	customer.pension.endamount = {
 		pessimistic: customer.finances.startcapital,
@@ -36,12 +36,19 @@ let calcCompound = ( customer ) => {
 		customer.pension.endamount.optimistic  *= customer.pension.interest.optimistic
 	}
 	// output our data
-	console.log ( "welcome, " + customer.name + ", to our advanced pension plan")
-	console.log( "you are starting with " + customer.finances.startcapital + " and add a monthly amount of " + customer.finances.monthlyadd)
-	console.log( "when you retire at age " + customer.pension.age + " you will have the following:")
-	console.log( "In a pessimistic scenario: " + prettyNr( customer.pension.endamount.pessimistic ) + " euros")
-	console.log( "In an average scenario: " + prettyNr( customer.pension.endamount.average ) + " euros")
-	console.log( "In a optimistic scenario: " + prettyNr( customer.pension.endamount.optimistic ) + " euros\n")
+	
+	callback ( customer )
+	// console.log([customer]) 
+	// callback( [customer] )
+	// console.log (typeof(customer))
+	// console.log ( "welcome, " + customer.name + ", to our advanced pension plan")
+	// console.log( "you are starting with " + customer.finances.startcapital + " and add a monthly amount of " + customer.finances.monthlyadd)
+	// console.log( "when you retire at age " + customer.pension.age + " you will have the following:")
+	// console.log( "In a pessimistic scenario: " + prettyNr( customer.pension.endamount.pessimistic ) + " euros")
+	// console.log( "In an average scenario: " + prettyNr( customer.pension.endamount.average ) + " euros")
+	// console.log( "In a optimistic scenario: " + prettyNr( customer.pension.endamount.optimistic ) + " euros\n")
 }
+
+
 
 module.exports = calcCompound
