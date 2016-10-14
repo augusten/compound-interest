@@ -2,11 +2,11 @@
 
 const fs = require ( 'fs' )
 const calcComp = require( __dirname + "/calcComp")
+const parseData = require( __dirname + "/parse-file-reader" )
 
 // Read the customer data json
-fs.readFile( __dirname + "/customer.json", "utf8", (err, data) => {
-	// parse the file to a readable object
-	let parsedData = JSON.parse( data )
-	calcComp ( parsedData )
+
+parseData( "/customers.json", function ( data ) { 
+	calcComp ( data ) 
 })
 
