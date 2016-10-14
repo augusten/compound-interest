@@ -1,3 +1,5 @@
+// Module for parsing data
+
 const fs = require("fs")
 
 function JSONreader ( dirname, callback ) {
