@@ -18,4 +18,5 @@ function JSONreader ( dirname, callback ) {
 	})
 }
 
+// Export module
 module.exports = JSONreader
