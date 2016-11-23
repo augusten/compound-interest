@@ -1,4 +1,4 @@
-#H1 Compound interest app
+# Compound interest app
 
 This is an application that calculates the compound interest.
 
